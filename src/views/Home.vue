@@ -6,34 +6,30 @@
         :class="page===0 ? 'is-current-page' : ''"
         @click="page=0"
       >
-        {{ $t('expenses.title') }}
-      </span>
+        {{ $t('calculator.title') }}
+      </span> 
       <span
-          class="is-pointer is-nav-element ml-1"
-          :class="page===1 ? 'is-current-page' : ''"
-          @click="page=1"
+        class="is-pointer is-nav-element ml-1"
+        :class="page===1 ? 'is-current-page' : ''"
+        @click="page=1"
       >
-        {{ $t('income.title') }}
+        {{ $t('devices.title') }}
       </span>
     </div>
-    <balance v-if="!reloadBalance" />
-    <balance-blocker v-else />
     <transition
       :name= componentTransitionName 
       mode="out-in"
       ref="componentTransition"
     >
-      <income v-if="page===1" @home="page=0" @edit="editDevice" @changePage="page=1" @reloadBalance="reload" />
-      <expenses v-else :editDevice="device" @changePage="page=1" @reloadBalance="reload" />
+      <calculator :editDevice="device" @changePage="page=1" v-if="page===0" />
+      <devices @home="page=0" @edit="editDevice" @changePage="page=1" v-else />
     </transition>
   </div>
 </template>
 
 <script>
-import balance from '@/components/Balance'
-import  balanceBlocker from '@/components/BalanceBlocker'
-import expenses from '@/components/Expenses'
-import income from '@/components/Income'
+import calculator from '@/components/Calculator'
+import devices from '@/components/Devices'
 import Vue2TouchEvents from 'vue2-touch-events'
 import Vue from 'vue'
 
@@ -42,10 +38,8 @@ Vue.use(Vue2TouchEvents)
 export default {
   name: 'Home',
   components: {
-    expenses,
-    income,
-    balance,
-    balanceBlocker
+    calculator,
+    devices
   },
   data () {
     return {
@@ -53,7 +47,6 @@ export default {
       device: {},
       currentComponent: 'Calculator',
       componentTransitionName: 'swipe-component-left',
-      reloadBalance: false
     }
   },
     watch: {
@@ -86,12 +79,6 @@ export default {
         this.page = 0
       }
     },
-    reload () {
-      this.reloadBalance = true
-      setTimeout(() => {
-        this.reloadBalance = false
-      }, 1)
-    }
   }
 }
 </script>

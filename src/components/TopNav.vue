@@ -3,7 +3,7 @@
         <div class="columns is-mobile">
             <div @click="home" class="column ml-4 is-pointer">
                 <span>
-                    Finance Tracker
+                    Electricity-Calc
                 </span>
             </div>
             <div class="column settingsWrapper">

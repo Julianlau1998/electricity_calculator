@@ -5,9 +5,17 @@
         </h3>
         <p class="mt-negative-4 is-device-title">
             <span> 
-                {{ type === 'expenses' ? $t('expenses.smallTitle') : $t('income.smallTitle') }}
+                {{ $t('devices.hours') }}
             </span> 
-            {{ device.amount }}{{ currency }}
+            {{ device.hours }}h/{{ $t('devices.day') }}
+            <br>
+            <span> 
+                {{ $t('devices.power') }}
+            </span> 
+            {{ device.watts }}W
+            <br>
+            <span> {{ $t('devices.price') }} </span> 
+            {{ device.price }}{{currency}}
         </p>
         <div class="mt-negative-3 mb-2">
             <button class="button" @click="$emit('delete', device)">
@@ -26,15 +34,11 @@ export default {
         device: {
             type: Object,
             required: true
-        },
-        type: {
-          type: String,
-          required: true
         }
     },
     data () {
         return {
-            currency: '€'
+            currency: ''
         }
     },
     created () {
