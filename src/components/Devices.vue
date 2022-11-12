@@ -1,30 +1,30 @@
 <template>
   <div class="pb-6">
     <div class="mt-5 mr-3 is-justify-content-center is-flex-wrap-wrap">
-      <div class="columns min-12 mx-4 is-mobile is-justify-content-start is-result-columns is-text-align-left">
-        <div class="column is-3 mt-2 is-calc-left-column">
-          {{ $t('devices.monthly') }}
+        <div class="columns mx-4 is-mobile is-justify-content-start is-result-columns is-text-align-left">
+            <div class="column is-3-5 mt-2 is-calc-left-column">
+                {{ $t('devices.monthly') }}
+            </div>
+            <div class="column is-2 ml-negative-5">
+                {{ monthly }}{{currency}}
+            </div>
         </div>
-        <div class="column is-2 ml-negative-5">
-          {{ monthly }}{{currency}}
+        <div class="columns mx-4 is-mobile is-justify-content-start is-result-columns is-text-align-left">
+            <div class="column is-3 mt-2 is-calc-left-column">
+                {{ $t('devices.yearly') }}
+            </div>
+            <div class="column is-2 ml-negative-5">
+                {{ yearly }}{{currency}}
+            </div>
         </div>
-      </div>
-      <div class="columns min-12 mx-4 is-mobile is-justify-content-start is-result-columns is-text-align-left">
-        <div class="column is-3 mt-2 is-calc-left-column">
-          {{ $t('devices.yearly') }}
+        <div class="columns mx-4 is-mobile is-justify-content-start is-result-columns is-text-align-left">
+            <div class="column is-3 mt-2 is-calc-left-column">
+                {{ $t('devices.daily') }}
+            </div>
+            <div class="column is-2 ml-negative-5">
+                {{ daily }}{{currency}}
+            </div>
         </div>
-        <div class="column is-2 ml-negative-5">
-          {{ yearly }}{{currency}}
-        </div>
-      </div>
-      <div class="columns min-12 mx-4 is-mobile is-justify-content-start is-result-columns is-text-align-left">
-        <div class="column is-3 mt-2 is-calc-left-column">
-          {{ $t('devices.daily') }}
-        </div>
-        <div class="column is-2 ml-negative-5">
-          {{ daily }}{{currency}}
-        </div>
-      </div>
     </div>
     <div class="hr mt-5" />
     <div class="mt-5 mb-6 is-justify-content-center is-flex-wrap-wrap devices">
