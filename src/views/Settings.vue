@@ -54,9 +54,9 @@
         {{ $t('settings.home') }}
     </button>
     <br>
-<!--    <button v-if="iosApp" class="button is-support-button" id="support" @click="support">
+   <button v-if="iosApp" class="button is-support-button" id="support" @click="support">
       Get Rid Of Ads
-    </button>-->
+    </button>
   </div>
 </template>
 
