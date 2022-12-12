@@ -17,6 +17,12 @@
                             {{ $t('settings.title') }}
                         </span>
                     </span>
+                    <div v-if="iosApp" class="hr" />
+                    <span v-if="helpAvailable && iosApp">
+                        <span @click="removeAds" class="is-icon-container is-pointer mt-6 setting noselect">
+                            Get Rid Of Ads
+                        </span>
+                    </span>
                     <!-- <div class="hr" />
                     <span v-if="helpAvailable">
                         <span @click="openHelp" class="is-pointer mt-6 setting noselect">
@@ -54,6 +60,11 @@ export default {
             this.shareAvailable = true
         }
     },
+    computed: {
+      iosApp () {
+        return window.webkit && window.webkit.messageHandlers
+      }
+    },
     methods: {
         openSettings () {
             if (this.$router.currentRoute.name === 'Plus' || this.$router.currentRoute.name === 'PlusSettings') {
@@ -69,6 +80,13 @@ export default {
         },
         home () {
             this.$router.push('/')
+        },
+        removeAds () {
+          if (this.iosApp && window.webkit.messageHandlers.toggleMessageHandler) {
+            window.webkit.messageHandlers.toggleMessageHandler.postMessage({
+              "message": 'Remove Ads:'
+            });
+          }
         }
     }
 }

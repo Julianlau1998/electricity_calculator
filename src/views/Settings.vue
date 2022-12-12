@@ -50,13 +50,16 @@
             </div>
         </div>
     </div>
-    <button @click="home" class="button is-home-button">
+    <button @click="home" class="button is-home-button mb-6">
         {{ $t('settings.home') }}
     </button>
     <br>
    <button v-if="iosApp" class="button is-support-button" id="support" @click="support">
       Get Rid Of Ads
    </button>
+    <button v-if="iosApp" class="button is-support-button" id="support" @click="restore">
+      Restore Purchase
+    </button>
   </div>
 </template>
 
@@ -104,6 +107,13 @@ export default {
           if (this.iosApp && window.webkit.messageHandlers.toggleMessageHandler) {
             window.webkit.messageHandlers.toggleMessageHandler.postMessage({
               "message": 'Trigger reward-ad:'
+            });
+          }
+        },
+        restore () {
+          if (this.iosApp && window.webkit.messageHandlers.toggleMessageHandler) {
+            window.webkit.messageHandlers.toggleMessageHandler.postMessage({
+              "message": 'restore'
             });
           }
         }
