@@ -56,7 +56,11 @@ export default {
     },
     methods: {
         openSettings () {
-            this.$router.push('settings')
+            if (this.$router.currentRoute.name === 'Plus') {
+              this.$router.push('plusSettings')
+            } else {
+              this.$router.push('settings')
+            }
             this.settings = false
         },
         openHelp () {

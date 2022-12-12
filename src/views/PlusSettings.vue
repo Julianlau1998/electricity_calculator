@@ -55,7 +55,7 @@
     </button>
     <br>
    <button v-if="iosApp" class="button is-support-button" id="support" @click="support">
-      Get Rid Of Ads
+      Manage Subscription
    </button>
   </div>
 </template>
@@ -98,7 +98,7 @@ export default {
     },
     methods: {
         home () {
-            this.$router.back()
+            this.$router.back()                                                       
         },
         support () {
           if (this.iosApp && window.webkit.messageHandlers.toggleMessageHandler) {
