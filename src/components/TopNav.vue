@@ -17,8 +17,8 @@
                             {{ $t('settings.title') }}
                         </span>
                     </span>
-                    <div v-if=" iosApp" class="hr" />
-                    <span v-if="helpAvailable && iosApp">
+                    <div v-if="iosApp && showRemoveAds" class="hr" />
+                    <span v-if="helpAvailable && iosApp && showRemoveAds">
                         <span @click="removeAds" class="is-icon-container is-pointer mt-6 setting noselect">
                             Get Rid Of Ads
                         </span>
@@ -63,6 +63,9 @@ export default {
     computed: {
       iosApp () {
         return window.webkit && window.webkit.messageHandlers
+      },
+      showRemoveAds () {
+        return this.$router.currentRoute.name !== 'Plus' && this.$router.currentRoute.name !== 'PlusSettings'
       }
     },
     methods: {
