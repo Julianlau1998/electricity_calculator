@@ -57,9 +57,9 @@
    <button v-if="iosApp" class="button is-support-button" id="support" @click="support">
       Get Rid Of Ads
    </button>
-    <button v-if="iosApp" class="button is-support-button" id="support" @click="restore">
+<!--    <button v-if="iosApp" class="button is-support-button" id="support" @click="restore">
       Restore Purchase
-    </button>
+    </button>-->
   </div>
 </template>
 

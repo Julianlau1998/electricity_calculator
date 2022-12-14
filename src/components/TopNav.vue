@@ -17,7 +17,7 @@
                             {{ $t('settings.title') }}
                         </span>
                     </span>
-                    <div v-if="iosApp" class="hr" />
+                    <div v-if=" iosApp" class="hr" />
                     <span v-if="helpAvailable && iosApp">
                         <span @click="removeAds" class="is-icon-container is-pointer mt-6 setting noselect">
                             Get Rid Of Ads

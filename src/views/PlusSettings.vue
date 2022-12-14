@@ -54,9 +54,15 @@
         {{ $t('settings.home') }}
     </button>
     <br>
-   <button v-if="iosApp" class="button is-support-button" id="support" @click="support">
+    <h2 class="mt-4">
+      Thank you for Your support.
+    </h2>
+    <p class="mt-negative-4">
+      To manage your subscription, please go to the app store.
+    </p>
+<!--   <button v-if="iosApp" class="button is-support-button" id="support" @click="support">
       Manage Subscription
-   </button>
+   </button>-->
   </div>
 </template>
 
