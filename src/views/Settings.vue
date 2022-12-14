@@ -111,8 +111,8 @@ export default {
           }
         },
         restore () {
-          if (this.iosApp && window.webkit.messageHandlers.toggleMessageHandler) {
-            window.webkit.messageHandlers.toggleMessageHandler.postMessage({
+          if (this.iosApp && window.webkit.messageHandlers.restorePurchase) {
+            window.webkit.messageHandlers.restorePurchase.postMessage({
               "message": 'restore'
             });
           }
